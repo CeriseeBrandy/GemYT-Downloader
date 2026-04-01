@@ -23,13 +23,28 @@
 
 ---
 
+## 🖥️ Preview
+
+![Ruby](ruby.png)
+
+---
+
 ## 💎 Themes
 
-- Ruby 🔴  
-- Emerald 🟢  
-- Sapphire 🔵  
-- Topaz 🟡  
-- Amethyst 🟣  
+### 🔴 Ruby
+![Ruby](ruby.png)
+
+### 🟢 Emerald
+![Emerald](emerald.png)
+
+### 🔵 Sapphire
+![Sapphire](sapphire.png)
+
+### 🟡 Topaz
+![Topaz](topaz.png)
+
+### 🟣 Amethyst
+![Amethyst](amethyst.png)
 
 ---
 
@@ -39,6 +54,11 @@
 
 ➡️ `RubyYT.exe`
 
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
 ---
 
 ## ⚙️ Installation (for developers)
