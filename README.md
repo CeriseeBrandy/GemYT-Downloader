@@ -45,7 +45,7 @@
 
 ```bash
 pip install -r requirements.txt
-python ruby_yt_gui.py
+python gemyt_gui.py
 
 ## ⚠️ Disclaimer
 
