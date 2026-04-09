@@ -16,35 +16,39 @@
 - 🐦 Twitter  
 
 ✔ MP3 / MP4 support  
-✔ Automatic metadata (artist, title, cover)  
-✔ Modern UI with themes  
+✔ Playlist support ✅ *(NEW)*  
+✔ Video preview (title + thumbnail) ✅ *(NEW)*  
+✔ Download progress bar ✅ *(NEW)*  
+✔ Download history ✅ *(NEW)*  
 ✔ Custom download folder  
+✔ Modern UI with themes  
 ✔ Fast & lightweight  
 
 ---
 
 ## 🖥️ Preview
 
-![Ruby](ruby.png)
+### 🚀 Loading Screen
+![Loading](screenshots/loading.png)
 
 ---
 
 ## 💎 Themes
 
 ### 🔴 Ruby
-![Ruby](ruby.png)
+![Ruby](screenshots/theme_ruby.png)
 
 ### 🟢 Emerald
-![Emerald](emerald.png)
+![Emerald](screenshots/theme_emerald.png)
 
 ### 🔵 Sapphire
-![Sapphire](sapphire.png)
+![Sapphire](screenshots/theme_sapphire.png)
 
 ### 🟡 Topaz
-![Topaz](topaz.png)
+![Topaz](screenshots/theme_topaz.png)
 
 ### 🟣 Amethyst
-![Amethyst](amethyst.png)
+![Amethyst](screenshots/theme_amethyst.png)
 
 ---
 
@@ -52,28 +56,12 @@
 
 👉 Go to the **Releases** tab and download the latest version:
 
-➡️ `RubyYT.exe`
+➡️ `GemYT.exe`
 
----
-
-## ⭐ Support
-
-If you like this project, consider giving it a ⭐ on GitHub!
 ---
 
 ## ⚙️ Installation (for developers)
 
 ```bash
 pip install -r requirements.txt
-python gemyt_gui.py
-
-## ⚠️ Disclaimer
-
-This tool is for personal use only.  
-Respect the terms of service of each platform.
-
----
-
-## 💎 Author
-
-Made with ❤️ by CeriseeBrandy
+python main.py
