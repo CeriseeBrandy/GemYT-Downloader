@@ -52,7 +52,7 @@ class App(ctk.CTk):
 
         self.title("RubyYT Downloader")
 
-        # ICON INIT
+        
         try:
             self.iconbitmap("assets/ruby.ico")
         except:
@@ -61,12 +61,12 @@ class App(ctk.CTk):
         self.main_container = ctk.CTkFrame(self, fg_color="transparent")
         self.main_container.pack(fill="both", expand=True)
 
-        # ===== SETTINGS =====
+        
         self.settings_frame = ctk.CTkFrame(self.main_container, width=250)
 
         ctk.CTkLabel(self.settings_frame, text="Settings", font=("Arial", 16, "bold")).pack(pady=10)
 
-        # QUALITY
+        
         ctk.CTkLabel(self.settings_frame, text="Quality").pack(pady=5)
         self.quality_menu = ctk.CTkOptionMenu(
             self.settings_frame,
@@ -76,7 +76,7 @@ class App(ctk.CTk):
         self.quality_menu.pack(pady=5)
         self.quality_menu.set(self.quality)
 
-        # PLAYLIST
+        
         ctk.CTkLabel(self.settings_frame, text="Playlist").pack(pady=5)
 
         self.playlist_var = ctk.BooleanVar(value=self.data["settings"].get("playlist", False))
@@ -89,7 +89,7 @@ class App(ctk.CTk):
         )
         self.playlist_switch.pack(pady=5)
 
-        # THEME
+        
         ctk.CTkLabel(self.settings_frame, text="Theme").pack(pady=5)
         self.theme_menu_settings = ctk.CTkOptionMenu(
             self.settings_frame,
@@ -98,7 +98,7 @@ class App(ctk.CTk):
         )
         self.theme_menu_settings.pack(pady=5)
 
-        # FOLDER
+        
         self.folder_btn = ctk.CTkButton(
             self.settings_frame,
             text="Choose download folder",
@@ -115,14 +115,14 @@ class App(ctk.CTk):
         )
         self.folder_label.pack(pady=5)
 
-        # ===== MAIN UI =====
+        
         self.left_frame = ctk.CTkFrame(self.main_container, fg_color="transparent")
         self.right_frame = ctk.CTkFrame(self.main_container, width=300)
 
         self.right_frame.pack(side="right", fill="y", padx=10, pady=20)
         self.left_frame.pack(side="left", fill="both", expand=True, padx=20, pady=20)
 
-        # SETTINGS BTN
+        
         self.settings_btn = ctk.CTkButton(
             self.left_frame,
             text="⚙️",
@@ -132,7 +132,7 @@ class App(ctk.CTk):
         )
         self.settings_btn.pack(anchor="nw", pady=5)
 
-        # TITLE
+        
         frame_title = ctk.CTkFrame(self.left_frame, fg_color="transparent")
         frame_title.pack(pady=10)
 
@@ -148,23 +148,23 @@ class App(ctk.CTk):
         )
         self.title_label.pack(side="left")
 
-        # URL
+        
         self.entry = ctk.CTkEntry(self.left_frame, width=420, placeholder_text="Paste a link...")
         self.entry.pack(pady=10)
         self.entry.bind("<KeyRelease>", self.on_url_change)
 
-        # PREVIEW
+        
         self.preview_label = ctk.CTkLabel(self.left_frame, text="No preview", text_color="gray")
         self.preview_label.pack()
 
         self.thumbnail_label = ctk.CTkLabel(self.left_frame, text="")
         self.thumbnail_label.pack(pady=5)
 
-        # MODE
+        
         self.option = ctk.CTkOptionMenu(self.left_frame, values=["MP3", "MP4"])
         self.option.pack(pady=10)
 
-        # DOWNLOAD
+        
         self.button = ctk.CTkButton(
             self.left_frame,
             text="Download",
@@ -174,12 +174,12 @@ class App(ctk.CTk):
         )
         self.button.pack(pady=10)
 
-        # PROGRESS
+        
         self.progress = ctk.CTkProgressBar(self.left_frame, width=420)
         self.progress.pack(pady=10)
         self.progress.set(0)
 
-        # HISTORY
+        
         self.history_title = ctk.CTkLabel(self.right_frame, text="History", font=("Arial", 16, "bold"))
         self.history_title.pack(pady=10)
 
@@ -200,7 +200,7 @@ class App(ctk.CTk):
 
         self.change_theme(theme)
 
-    # ===== SAFE THREAD =====
+    
     def run_thread(self, target):
         threading.Thread(target=target, daemon=True).start()
 
@@ -208,7 +208,7 @@ class App(ctk.CTk):
         if self.winfo_exists():
             self.after(0, func)
 
-    # ===== SETTINGS =====
+    
     def toggle_playlist(self):
         self.data["settings"]["playlist"] = self.playlist_var.get()
         save_data(self.data)
@@ -234,7 +234,7 @@ class App(ctk.CTk):
         self.data["settings"]["quality"] = value
         save_data(self.data)
 
-    # ===== PREVIEW =====
+    
     def on_url_change(self, event):
         if self.preview_after_id:
             self.after_cancel(self.preview_after_id)
@@ -266,7 +266,7 @@ class App(ctk.CTk):
 
         self.run_thread(run)
 
-    # ===== DOWNLOAD =====
+    
     def start_download(self):
         url = self.entry.get()
         mode = self.option.get()
@@ -296,7 +296,7 @@ class App(ctk.CTk):
         value = args[0] if len(args) > 0 else 0
         self.safe_update(lambda: self.progress.set(value))
 
-    # ===== HISTORY =====
+    
     def display_history(self, title, thumbnail):
         item = ctk.CTkFrame(self.history_frame)
         item.pack(pady=5, fill="x")
@@ -325,7 +325,7 @@ class App(ctk.CTk):
         self.data["history"] = []
         save_data(self.data)
 
-    # ===== THEME =====
+    
     def change_theme(self, choice):
         self.current_color = themes[choice]
 
@@ -355,12 +355,12 @@ class App(ctk.CTk):
             button_hover_color=darker(self.current_color, 0.7)
         )
 
-        # UI ICON
+        
         img = ctk.CTkImage(Image.open(icon_images[choice]), size=(24, 24))
         self.icon_label.configure(image=img)
         self.icon_label.image = img
 
-        # WINDOWS ICON (STABLE)
+        
         try:
             ico_path = f"assets/{choice.lower()}.ico"
             if os.path.exists(ico_path):
